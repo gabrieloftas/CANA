@@ -12,7 +12,7 @@ public class Recursion {
         return number * factorial(number-1);
     }
 
-    public static int sumOfNumbers(int[] numbers){
+    public static int sumOfNumbersBL(int[] numbers){
         int halfArray = numbers.length/2;
         int[] newArray1 = new int[halfArray];
         int[] newArray2 = new int[numbers.length - halfArray];
@@ -25,7 +25,14 @@ public class Recursion {
         if (numbers.length == 1 ) {
             return numbers[0];
         }
-        return sumOfNumbers(newArray1) + sumOfNumbers(newArray2);
+        return sumOfNumbersBL(newArray1) + sumOfNumbersBL(newArray2);
+    }
+
+    public static int sumOfNumbers(int[] numbers,int i) {
+        if ((i < numbers.length)) {
+            return numbers[i] + sumOfNumbers(numbers, i + 1);
+        }
+        return 0;
     }
     
 }
